@@ -50,6 +50,7 @@
             <a href="#" class="text-2xl font-bold text-white tracking-wider">Zaid Khan</a>
             <nav class="hidden md:flex items-center space-x-8">
                 <a href="#about" class="text-gray-300 hover:text-blue-400 transition-colors">About</a>
+                <a href="#experience" class="text-gray-300 hover:text-blue-400 transition-colors">Experience</a>
                 <a href="#projects" class="text-gray-300 hover:text-blue-400 transition-colors">Projects</a>
                 <a href="#live-sites" class="text-gray-300 hover:text-blue-400 transition-colors">Live Sites</a>
                 <a href="#contact" class="text-gray-300 hover:text-blue-400 transition-colors">Contact</a>
@@ -61,6 +62,7 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-gray-800 border-t border-gray-700">
             <a href="#about" class="block py-3 px-6 text-center hover:bg-gray-700">About</a>
+            <a href="#experience" class="block py-3 px-6 text-center hover:bg-gray-700">Experience</a>
             <a href="#projects" class="block py-3 px-6 text-center hover:bg-gray-700">Projects</a>
             <a href="#live-sites" class="block py-3 px-6 text-center hover:bg-gray-700">Live Sites</a>
             <a href="#contact" class="block py-3 px-6 text-center hover:bg-gray-700">Contact</a>
@@ -72,10 +74,10 @@
         <section id="home" class="min-h-screen flex items-center pt-24 pb-12">
             <div class="container mx-auto px-6">
                 <div class="flex flex-col md:flex-row items-center justify-center text-left">
-                    <div class="md:w-1/2 flex justify-center reveal md:order-1 mb-10 md:mb-0">
+                    <div class="md:w-1/2 flex justify-center md:order-1 mb-10 md:mb-0">
                         <img src="https://i.postimg.cc/6Q8xZVhX/zaid.jpg" alt="Zaid Khan" class="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover shadow-2xl border-4 border-gray-700" onerror="this.onerror=null;this.src='https://placehold.co/320x320/e2e8f0/2d3748?text=ZK';">
                     </div>
-                    <div class="md:w-1/2 reveal md:order-2 md:pl-12">
+                    <div class="md:w-1/2 md:order-2 md:pl-12">
                         <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4">
                             Web Developer & Mobile App Enthusiast
                         </h1>
@@ -109,7 +111,7 @@
         <!-- About Section -->
         <section id="about" class="py-24 section-bg">
             <div class="container mx-auto px-6">
-                <div class="text-center max-w-4xl mx-auto reveal">
+                <div class="text-center max-w-4xl mx-auto">
                     <h2 class="text-2xl font-bold text-gradient mb-2">ABOUT ME</h2>
                     <h3 class="text-3xl font-bold text-white mb-4">A dedicated Web Developer based in Surat, India</h3>
                     <p class="text-gray-400 text-lg leading-relaxed">
@@ -118,12 +120,35 @@
                 </div>
             </div>
         </section>
+
+        <!-- Experience Section -->
+        <section id="experience" class="py-24 bg-gray-900 text-white">
+            <div class="container mx-auto px-6">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-2xl font-bold text-gradient mb-12 text-center">EXPERIENCE</h2>
+                    <div class="relative border-l-2 border-gray-700 ml-6">
+                        <div class="mb-10 ml-10">
+                            <div class="absolute -left-4 mt-1.5 h-7 w-7 rounded-full bg-blue-500 border-4 border-gray-900"></div>
+                            <time class="mb-1 text-sm font-normal leading-none text-gray-400">Feb 2023 - Jan 2024</time>
+                            <h3 class="text-xl font-semibold text-white mt-1">WordPress Developer</h3>
+                            <p class="mb-4 text-base font-normal text-gray-400">Webx Technologies, Surat</p>
+                            <ul class="list-disc list-inside space-y-2 text-gray-400">
+                                <li>Developed and launched over 30 fully-responsive WordPress websites.</li>
+                                <li>Managed end-to-end client communication and project lifecycle.</li>
+                                <li>Customized WordPress themes and plugins using PHP, CSS, and JavaScript.</li>
+                                <li>Performed website maintenance, security audits, and performance optimization.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
         
         <!-- Skills Section -->
-        <section id="skills" class="py-24 bg-gray-900 text-white">
+        <section id="skills" class="py-24 section-bg">
              <div class="container mx-auto px-6">
-                <div class="max-w-4xl mx-auto reveal">
-                    <h2 class="text-sm font-bold uppercase tracking-widest text-gray-400 mb-12">Tech Stack</h2>
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-sm font-bold uppercase tracking-widest text-gray-400 mb-12 text-center">Tech Stack</h2>
                     <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
                         <div class="flex items-center space-x-4 p-4 border border-gray-700 rounded-lg hover:bg-gray-800 transition-colors">
                             <i class="fab fa-wordpress text-3xl text-blue-400"></i>
@@ -159,16 +184,16 @@
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="py-24 section-bg">
+        <section id="projects" class="py-24 bg-gray-900">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-12 reveal">
+                <div class="text-center mb-12">
                     <h2 class="text-2xl font-bold text-gradient mb-2">PROJECTS</h2>
                     <h3 class="text-3xl font-bold text-white">Each project is a unique piece of development 🧩</h3>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                     <!-- Project Card 1: WallPix -->
-                    <div class="bg-gray-800 rounded-lg shadow-xl border border-gray-700 hover:border-blue-500 transition-all reveal flex flex-col">
+                    <div class="bg-gray-800 rounded-lg shadow-xl border border-gray-700 hover:border-blue-500 transition-all flex flex-col">
                         <div class="aspect-video bg-gray-900 rounded-t-lg overflow-hidden">
                             <img src="https://i.postimg.cc/j2pJnWSX/Gemini-Generated-Image-tet4sltet4sltet4.png" alt="WallPix Project Showcase" class="w-full h-full object-cover">
                         </div>
@@ -189,7 +214,7 @@
                     </div>
 
                     <!-- Project Card 2: ZapCart -->
-                    <div class="bg-gray-800 rounded-lg shadow-xl border border-gray-700 hover:border-blue-500 transition-all reveal flex flex-col">
+                    <div class="bg-gray-800 rounded-lg shadow-xl border border-gray-700 hover:border-blue-500 transition-all flex flex-col">
                         <div class="aspect-video bg-white rounded-t-lg overflow-hidden flex items-center justify-center p-4">
                             <img src="https://i.postimg.cc/2SKXsVsj/ic-stat-notification.png" alt="ZapCart Project Showcase" class="h-full w-auto object-contain">
                         </div>
@@ -212,15 +237,15 @@
         </section>
 
         <!-- Live Websites Section -->
-        <section id="live-sites" class="py-24 bg-gray-900">
+        <section id="live-sites" class="py-24 section-bg">
             <div class="container mx-auto px-6">
-                <div class="text-center mb-12 reveal">
+                <div class="text-center mb-12">
                     <h2 class="text-2xl font-bold text-gradient mb-2">LIVE WEBSITES</h2>
                     <h3 class="text-3xl font-bold text-white">A selection of my WordPress work 🚀</h3>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                     <!-- Website Card 1 -->
-                    <a href="http://smithsandcobblers.com" target="_blank" class="block bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 reveal border-2 border-gray-700 hover:border-blue-500">
+                    <a href="http://smithsandcobblers.com" target="_blank" class="block bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-700 hover:border-blue-500">
                         <div class="h-40 mb-4 flex items-center justify-center bg-white rounded-md p-2">
                              <img src="https://i.postimg.cc/262Hxy7f/SMITHS-COBBLERS-final.png" alt="Smiths and Cobblers" class="max-h-full max-w-full object-contain">
                         </div>
@@ -228,7 +253,7 @@
                         <p class="text-gray-400 text-center">E-commerce for bespoke leather goods and footwear.</p>
                     </a>
                     <!-- Website Card 5 -->
-                    <a href="http://crepculture.com" target="_blank" class="block bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 reveal border-2 border-gray-700 hover:border-blue-500">
+                    <a href="http://crepculture.com" target="_blank" class="block bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-700 hover:border-blue-500">
                         <div class="h-40 mb-4 flex items-center justify-center bg-white rounded-md p-2">
                             <img src="https://i.postimg.cc/FzkjJHPp/ggg.webp" alt="Crep Culture" class="max-h-full max-w-full object-contain">
                         </div>
@@ -236,7 +261,7 @@
                         <p class="text-gray-400 text-center">An e-commerce platform for luxury and stylish watches.</p>
                     </a>
                     <!-- Website Card 2 -->
-                    <a href="http://aryanopticals.in" target="_blank" class="block bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 reveal border-2 border-gray-700 hover:border-blue-500">
+                    <a href="http://aryanopticals.in" target="_blank" class="block bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-700 hover:border-blue-500">
                         <div class="h-40 mb-4 flex items-center justify-center bg-white rounded-md p-2">
                             <img src="https://i.postimg.cc/rFj8rXbX/ARYAN-2.png" alt="Aryan Opticals" class="max-h-full max-w-full object-contain">
                         </div>
@@ -244,7 +269,7 @@
                         <p class="text-gray-400 text-center">Professional site for an optical store's eyewear collections.</p>
                     </a>
                     <!-- Website Card 3 -->
-                    <a href="http://yashpal.in" target="_blank" class="block bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 reveal border-2 border-gray-700 hover:border-blue-500">
+                    <a href="http://yashpal.in" target="_blank" class="block bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-700 hover:border-blue-500">
                         <div class="h-40 mb-4 flex items-center justify-center bg-white rounded-md p-2">
                             <img src="https://i.postimg.cc/1XVzKn1g/funky-23.png" alt="Yash Pal" class="max-h-full max-w-full object-contain">
                         </div>
@@ -252,7 +277,7 @@
                         <p class="text-gray-400 text-center">A corporate site for a business specializing in device displays.</p>
                     </a>
                     <!-- Website Card 4 -->
-                    <a href="http://funkyshades.in" target="_blank" class="block bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 reveal border-2 border-gray-700 hover:border-blue-500">
+                    <a href="http://funkyshades.in" target="_blank" class="block bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-700 hover:border-blue-500">
                         <div class="h-40 mb-4 flex items-center justify-center bg-white rounded-md p-2">
                             <img src="https://i.postimg.cc/tgRvnFFz/funkyshades.png" alt="Funky Shades" class="max-h-full max-w-full object-contain">
                         </div>
@@ -264,9 +289,9 @@
         </section>
 
         <!-- Contact Section -->
-        <section id="contact" class="py-24 section-bg">
+        <section id="contact" class="py-24 bg-gray-900">
             <div class="container mx-auto px-6 text-center">
-                <div class="max-w-2xl mx-auto reveal">
+                <div class="max-w-2xl mx-auto">
                     <h2 class="text-2xl font-bold text-gradient mb-2">CONTACT</h2>
                     <h3 class="text-3xl font-bold text-white mb-6">Don't be shy! Hit me up! 👇</h3>
                     <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-12">
@@ -327,18 +352,6 @@
             } else {
                 header.classList.remove('shadow-lg', 'shadow-gray-700/50');
             }
-        });
-
-        // --- Scroll Reveal Animations ---
-        const sr = ScrollReveal({
-            origin: 'top',
-            distance: '60px',
-            duration: 1000,
-            delay: 200,
-            reset: false,
-        });
-        sr.reveal('.reveal', {
-            interval: 100
         });
     </script>
 
