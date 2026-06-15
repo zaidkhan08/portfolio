@@ -1,359 +1,420 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Zaid Khan - Web Developer</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Zaid Khan — Web Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <script src="https://unpkg.com/scrollreveal"></script>
     <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --green:   #16a34a;
+            --green-d: #14532d;
+            --green-l: #dcfce7;
+            --text:    #0f172a;
+            --text-2:  #475569;
+            --text-3:  #94a3b8;
+            --border:  rgba(22,163,74,0.15);
+            --shadow:  0 8px 32px rgba(22,163,74,0.12);
+        }
+
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #111827; /* Dark background */
-            color: #d1d5db; /* Lighter text for dark bg */
+            background: #f8faf8;
+            color: var(--text-2);
+            min-height: 100vh;
         }
-        .text-gradient {
-            background: -webkit-linear-gradient(45deg, #3b82f6, #60a5fa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+
+        /* ── PROFILE ── */
+        .profile-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 4rem 1.5rem 3rem;
+            text-align: center;
+        }
+
+        .img-ring {
+            position: relative;
+            width: 160px; height: 160px;
+            margin-bottom: 1.5rem;
+        }
+        .img-ring::before {
+            content: '';
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            background: conic-gradient(var(--green) 0%, #bbf7d0 40%, var(--green) 60%, #fff 80%, var(--green) 100%);
+            animation: spin 8s linear infinite;
+        }
+        .img-ring::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 50%;
+            background: #f8faf8;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        .profile-img {
+            position: relative;
+            z-index: 1;
+            width: 100%; height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.45rem;
+            background: var(--green-l);
+            border: 1px solid rgba(22,163,74,0.3);
+            color: var(--green-d);
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.3rem 0.9rem;
+            border-radius: 100px;
+            margin-bottom: 1rem;
+        }
+        .pulse-dot {
+            width: 6px; height: 6px;
+            border-radius: 50%;
+            background: var(--green);
+            position: relative;
+        }
+        .pulse-dot::after {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            background: rgba(22,163,74,0.35);
+            animation: pulseRing 2s ease infinite;
+        }
+        @keyframes pulseRing {
+            0% { transform: scale(1); opacity: 0.8; }
+            100% { transform: scale(2.5); opacity: 0; }
+        }
+
+        .profile-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--text);
+            letter-spacing: -0.02em;
+            margin-bottom: 0.4rem;
+        }
+
+        .profile-role {
+            font-size: 1rem;
+            color: var(--green);
+            font-weight: 500;
+            margin-bottom: 0.75rem;
+        }
+
+        .profile-bio {
+            font-size: 0.92rem;
+            color: var(--text-2);
+            max-width: 420px;
+            line-height: 1.75;
+            margin-bottom: 1.5rem;
+        }
+
+        .socials {
+            display: flex;
+            gap: 0.65rem;
+            margin-bottom: 1.5rem;
+        }
+        .social-icon {
+            width: 38px; height: 38px;
+            border-radius: 9px;
+            background: #fff;
+            border: 1px solid var(--border);
+            display: flex; align-items: center; justify-content: center;
+            color: var(--text-2);
+            text-decoration: none;
+            font-size: 1rem;
+            transition: all 0.2s;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+        }
+        .social-icon:hover {
+            border-color: var(--green);
+            color: var(--green);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow);
+        }
+
+        .profile-actions {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            justify-content: center;
         }
         .btn-primary {
-            @apply bg-gradient-to-r from-blue-500 to-blue-600 text-white font-semibold py-3 px-6 rounded-lg hover:from-blue-600 hover:to-blue-700 transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 0.875rem;
+            padding: 0.65rem 1.5rem;
+            border-radius: 9px;
+            background: var(--green);
+            color: #fff;
+            text-decoration: none;
+            transition: all 0.2s;
+            box-shadow: 0 3px 12px rgba(22,163,74,0.35);
         }
-        .btn-secondary {
-            @apply bg-gray-700 text-gray-200 font-semibold py-3 px-6 rounded-lg hover:bg-gray-600 transition-all duration-300 transform hover:-translate-y-0.5;
+        .btn-primary:hover { background: var(--green-d); transform: translateY(-1px); }
+
+        .btn-ghost {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 600;
+            font-size: 0.875rem;
+            padding: 0.65rem 1.5rem;
+            border-radius: 9px;
+            background: #fff;
+            color: var(--text);
+            text-decoration: none;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s;
         }
-        .section-bg {
-            background-color: #1f2937; /* Slightly lighter dark for sections */
+        .btn-ghost:hover { border-color: var(--green); color: var(--green); transform: translateY(-1px); }
+
+        /* ── DIVIDER ── */
+        .section-divider {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
         }
-        /* Animation for the green dot */
-        @keyframes pulse {
-            0%, 100% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0.5;
-            }
+        .section-divider hr { flex: 1; border: none; border-top: 1px solid var(--border); }
+        .section-divider span {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.72rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: var(--green);
+            white-space: nowrap;
         }
-        .animate-pulse-dot {
-            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+        /* ── SITES GRID ── */
+        .sites-section {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem;
+        }
+
+        .sites-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.25rem;
+        }
+
+        .site-card {
+            background: #fff;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.25rem;
+            text-decoration: none;
+            transition: all 0.25s;
+            display: block;
+            box-shadow: 0 1px 6px rgba(0,0,0,0.04);
+        }
+        .site-card:hover {
+            border-color: var(--green);
+            background: #f0fdf4;
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08), var(--shadow);
+        }
+
+        .site-logo-wrap {
+            height: 68px;
+            display: flex; align-items: center; justify-content: center;
+            background: #f8faf8;
+            border-radius: 10px;
+            margin-bottom: 0.875rem;
+            padding: 0.6rem;
+            overflow: hidden;
+        }
+        .site-logo-wrap img {
+            max-height: 100%; max-width: 100%;
+            object-fit: contain;
+        }
+
+        .site-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 0.3rem;
+        }
+        .site-desc {
+            font-size: 0.775rem;
+            color: var(--text-3);
+            line-height: 1.45;
+        }
+        .site-url {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-size: 0.72rem;
+            font-weight: 600;
+            font-family: 'Space Grotesk', sans-serif;
+            color: var(--green);
+            margin-top: 0.65rem;
+        }
+        .site-card:hover .site-url { color: var(--green-d); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 640px) {
+            .sites-grid { grid-template-columns: 1fr 1fr; }
+            .profile-name { font-size: 1.6rem; }
+        }
+        @media (max-width: 420px) {
+            .sites-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <!-- Header -->
-    <header id="header" class="bg-gray-900/80 backdrop-blur-sm fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-white tracking-wider">Zaid Khan</a>
-            <nav class="hidden md:flex items-center space-x-8">
-                <a href="#about" class="text-gray-300 hover:text-blue-400 transition-colors">About</a>
-                <a href="#experience" class="text-gray-300 hover:text-blue-400 transition-colors">Experience</a>
-                <a href="#projects" class="text-gray-300 hover:text-blue-400 transition-colors">Projects</a>
-                <a href="#live-sites" class="text-gray-300 hover:text-blue-400 transition-colors">Live Sites</a>
-                <a href="#contact" class="text-gray-300 hover:text-blue-400 transition-colors">Contact</a>
-            </nav>
-            <button id="mobile-menu-button" class="md:hidden text-2xl text-white">
-                <i class="fas fa-bars"></i>
-            </button>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-gray-800 border-t border-gray-700">
-            <a href="#about" class="block py-3 px-6 text-center hover:bg-gray-700">About</a>
-            <a href="#experience" class="block py-3 px-6 text-center hover:bg-gray-700">Experience</a>
-            <a href="#projects" class="block py-3 px-6 text-center hover:bg-gray-700">Projects</a>
-            <a href="#live-sites" class="block py-3 px-6 text-center hover:bg-gray-700">Live Sites</a>
-            <a href="#contact" class="block py-3 px-6 text-center hover:bg-gray-700">Contact</a>
-        </div>
-    </header>
+<!-- PROFILE -->
+<div class="profile-section">
+    <div class="img-ring">
+        <img src="https://i.postimg.cc/6Q8xZVhX/zaid.jpg" alt="Zaid Khan" class="profile-img"
+             onerror="this.src='https://placehold.co/160x160/dcfce7/16a34a?text=ZK'">
+    </div>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="home" class="min-h-screen flex items-center pt-24 pb-12">
-            <div class="container mx-auto px-6">
-                <div class="flex flex-col md:flex-row items-center justify-center text-left">
-                    <div class="md:w-1/2 flex justify-center md:order-1 mb-10 md:mb-0">
-                        <img src="https://i.postimg.cc/6Q8xZVhX/zaid.jpg" alt="Zaid Khan" class="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover shadow-2xl border-4 border-gray-700" onerror="this.onerror=null;this.src='https://placehold.co/320x320/e2e8f0/2d3748?text=ZK';">
-                    </div>
-                    <div class="md:w-1/2 md:order-2 md:pl-12">
-                        <h1 class="text-4xl md:text-6xl font-extrabold text-white leading-tight mb-4">
-                            Web Developer & Mobile App Enthusiast
-                        </h1>
-                        <div class="inline-flex items-center bg-green-900/50 text-green-300 text-sm font-semibold px-4 py-2 rounded-full mb-8">
-                            <span class="relative flex h-3 w-3 mr-3">
-                                <span class="animate-pulse-dot absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                                <span class="relative inline-flex rounded-full h-3 w-3 bg-green-500"></span>
-                            </span>
-                            Open to work
-                        </div>
-                        <p class="text-lg text-gray-400 mb-8 max-w-lg">
-                            Hi, I'm Zaid Khan. A passionate Web Developer based in Surat, Gujarat. I build things for the web and mobile.
-                        </p>
-                        <div class="flex justify-start space-x-4 mb-8">
-                            <a href="https://www.linkedin.com/in/khan-zaid-5b824b263/" target="_blank" class="text-3xl text-gray-400 hover:text-blue-400 transition-transform transform hover:-translate-y-1">
-                                <i class="fab fa-linkedin"></i>
-                            </a>
-                            <a href="https://github.com/zaidkhan239" target="_blank" class="text-3xl text-gray-400 hover:text-blue-400 transition-transform transform hover:-translate-y-1">
-                                <i class="fab fa-github"></i>
-                            </a>
-                        </div>
-                        <div class="flex justify-start space-x-4">
-                             <a href="#contact" class="btn-primary">Get in Touch</a>
-                             <a href="ZaidKhan.pdf" download="ZaidKhan-Resume.pdf" class="btn-secondary">Download CV</a>
-                        </div>
-                    </div>
-                </div>
+    <div class="badge">
+        <div class="pulse-dot"></div>
+        Available for work
+    </div>
+
+    <h1 class="profile-name">Zaid Khan</h1>
+    <p class="profile-role">Web Developer & Flutter Enthusiast</p>
+    <p class="profile-bio">Building responsive WordPress sites and cross-platform mobile apps. Based in Surat, Gujarat.</p>
+
+    <div class="socials">
+        <a href="https://www.linkedin.com/in/khan-zaid-5b824b263/" target="_blank" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/zaidkhan239" target="_blank" class="social-icon" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="mailto:zaidkhan4030@gmail.com" class="social-icon" aria-label="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+
+    <div class="profile-actions">
+        <a href="mailto:zaidkhan4030@gmail.com" class="btn-primary">Get in touch</a>
+        <a href="ZaidKhan.pdf" download="ZaidKhan-Resume.pdf" class="btn-ghost">Download CV ↓</a>
+    </div>
+</div>
+
+<!-- LIVE SITES -->
+<div class="section-divider">
+    <hr>
+    <span>Live Websites</span>
+    <hr>
+</div>
+
+<div class="sites-section">
+    <div class="sites-grid">
+
+        <a href="https://sunglassesstudio.in/" target="_blank" class="site-card">
+            <div class="site-logo-wrap">
+                <img src="https://sunglassesstudio.in/wp-content/uploads/2024/01/logo.png"
+                     alt="Sunglasses Studio"
+                     onerror="this.parentElement.innerHTML='<span style=\'font-family:Space Grotesk;font-size:1.5rem;font-weight:700;color:#16a34a\'>SS</span>'">
             </div>
-        </section>
+            <div class="site-name">Sunglasses Studio</div>
+            <div class="site-desc">Online store for trendy sunglasses.</div>
+            <div class="site-url"><i class="fas fa-external-link-alt" style="font-size:0.6rem"></i> sunglassesstudio.in</div>
+        </a>
 
-        <!-- About Section -->
-        <section id="about" class="py-24 section-bg">
-            <div class="container mx-auto px-6">
-                <div class="text-center max-w-4xl mx-auto">
-                    <h2 class="text-2xl font-bold text-gradient mb-2">ABOUT ME</h2>
-                    <h3 class="text-3xl font-bold text-white mb-4">A dedicated Web Developer based in Surat, India</h3>
-                    <p class="text-gray-400 text-lg leading-relaxed">
-                        I'm a Web Developer specializing in custom WordPress solutions, managing projects from start to finish. While pursuing my MCA, I'm also diving into mobile development with Flutter to build cross-platform applications.
-                    </p>
-                </div>
+        <a href="https://birlaayodhyadharamshalaa.in/" target="_blank" class="site-card">
+            <div class="site-logo-wrap">
+                <img src="https://birlaayodhyadharamshalaa.in/wp-content/uploads/2024/01/logo.png"
+                     alt="Birla Ayodhya Dharamshalaa"
+                     onerror="this.parentElement.innerHTML='<span style=\'font-family:Space Grotesk;font-size:1.5rem;font-weight:700;color:#16a34a\'>BA</span>'">
             </div>
-        </section>
+            <div class="site-name">Birla Ayodhya Dharamshalaa</div>
+            <div class="site-desc">Dharamshalaa accommodation site.</div>
+            <div class="site-url"><i class="fas fa-external-link-alt" style="font-size:0.6rem"></i> birlaayodhyadharamshalaa.in</div>
+        </a>
 
-        <!-- Experience Section -->
-        <section id="experience" class="py-24 bg-gray-900 text-white">
-            <div class="container mx-auto px-6">
-                <div class="max-w-4xl mx-auto">
-                    <h2 class="text-2xl font-bold text-gradient mb-12 text-center">EXPERIENCE</h2>
-                    <div class="relative border-l-2 border-gray-700 ml-6">
-                        <div class="mb-10 ml-10">
-                            <div class="absolute -left-4 mt-1.5 h-7 w-7 rounded-full bg-blue-500 border-4 border-gray-900"></div>
-                            <time class="mb-1 text-sm font-normal leading-none text-gray-400">Feb 2023 - Jan 2024</time>
-                            <h3 class="text-xl font-semibold text-white mt-1">WordPress Developer</h3>
-                            <p class="mb-4 text-base font-normal text-gray-400">Webx Technologies, Surat</p>
-                            <ul class="list-disc list-inside space-y-2 text-gray-400">
-                                <li>Developed and launched over 30 fully-responsive WordPress websites.</li>
-                                <li>Managed end-to-end client communication and project lifecycle.</li>
-                                <li>Customized WordPress themes and plugins using PHP, CSS, and JavaScript.</li>
-                                <li>Performed website maintenance, security audits, and performance optimization.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+        <a href="https://mspareog.in/" target="_blank" class="site-card">
+            <div class="site-logo-wrap">
+                <img src="https://mspareog.in/wp-content/uploads/2024/01/logo.png"
+                     alt="MS Pareog"
+                     onerror="this.parentElement.innerHTML='<span style=\'font-family:Space Grotesk;font-size:1.5rem;font-weight:700;color:#16a34a\'>MS</span>'">
             </div>
-        </section>
-        
-        <!-- Skills Section -->
-        <section id="skills" class="py-24 section-bg">
-             <div class="container mx-auto px-6">
-                <div class="max-w-4xl mx-auto">
-                    <h2 class="text-sm font-bold uppercase tracking-widest text-gray-400 mb-12 text-center">Tech Stack</h2>
-                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
-                        <div class="flex items-center space-x-4 p-4 border border-gray-700 rounded-lg hover:bg-gray-800 transition-colors">
-                            <i class="fab fa-wordpress text-3xl text-blue-400"></i>
-                            <span>WordPress</span>
-                        </div>
-                        <div class="flex items-center space-x-4 p-4 border border-gray-700 rounded-lg hover:bg-gray-800 transition-colors">
-                            <i class="fab fa-html5 text-3xl text-orange-500"></i>
-                            <span>HTML5</span>
-                        </div>
-                        <div class="flex items-center space-x-4 p-4 border border-gray-700 rounded-lg hover:bg-gray-800 transition-colors">
-                            <i class="fab fa-css3-alt text-3xl text-blue-500"></i>
-                            <span>CSS3</span>
-                        </div>
-                        <div class="flex items-center space-x-4 p-4 border border-gray-700 rounded-lg hover:bg-gray-800 transition-colors">
-                            <i class="fab fa-js-square text-3xl text-yellow-400"></i>
-                            <span>JavaScript</span>
-                        </div>
-                        <div class="flex items-center space-x-4 p-4 border border-gray-700 rounded-lg hover:bg-gray-800 transition-colors">
-                            <i class="fab fa-php text-3xl text-indigo-400"></i>
-                            <span>PHP</span>
-                        </div>
-                         <div class="flex items-center space-x-4 p-4 border border-gray-700 rounded-lg hover:bg-gray-800 transition-colors">
-                            <i class="fas fa-mobile-alt text-3xl text-cyan-400"></i>
-                            <span>Flutter</span>
-                        </div>
-                        <div class="flex items-center space-x-4 p-4 border border-gray-700 rounded-lg hover:bg-gray-800 transition-colors">
-                            <i class="fas fa-database text-3xl text-green-400"></i>
-                            <span>MySQL</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="site-name">MS Pareog</div>
+            <div class="site-desc">Business website.</div>
+            <div class="site-url"><i class="fas fa-external-link-alt" style="font-size:0.6rem"></i> mspareog.in</div>
+        </a>
+
+        <a href="https://dmstore.in/" target="_blank" class="site-card">
+            <div class="site-logo-wrap">
+                <img src="https://dmstore.in/wp-content/uploads/2024/01/logo.png"
+                     alt="DM Store"
+                     onerror="this.parentElement.innerHTML='<span style=\'font-family:Space Grotesk;font-size:1.5rem;font-weight:700;color:#16a34a\'>DM</span>'">
             </div>
-        </section>
+            <div class="site-name">DM Store</div>
+            <div class="site-desc">Online retail store.</div>
+            <div class="site-url"><i class="fas fa-external-link-alt" style="font-size:0.6rem"></i> dmstore.in</div>
+        </a>
 
-        <!-- Projects Section -->
-        <section id="projects" class="py-24 bg-gray-900">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-2xl font-bold text-gradient mb-2">PROJECTS</h2>
-                    <h3 class="text-3xl font-bold text-white">Each project is a unique piece of development 🧩</h3>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                    <!-- Project Card 1: WallPix -->
-                    <div class="bg-gray-800 rounded-lg shadow-xl border border-gray-700 hover:border-blue-500 transition-all flex flex-col">
-                        <div class="aspect-video bg-gray-900 rounded-t-lg overflow-hidden">
-                            <img src="https://i.postimg.cc/j2pJnWSX/Gemini-Generated-Image-tet4sltet4sltet4.png" alt="WallPix Project Showcase" class="w-full h-full object-cover">
-                        </div>
-                        <div class="p-6 flex-grow flex flex-col">
-                            <h3 class="text-2xl font-bold text-white mb-4">WallPix</h3>
-                            <p class="text-gray-400 leading-relaxed mb-6 flex-grow">
-                                A cross-platform wallpaper app with an AI image generation API to create unique wallpapers from text prompts.
-                            </p>
-                            <div class="flex flex-wrap gap-3 mb-6">
-                                <span class="bg-gray-700 text-gray-300 text-sm font-semibold px-3 py-1 rounded-full">Flutter</span>
-                                <span class="bg-gray-700 text-gray-300 text-sm font-semibold px-3 py-1 rounded-full">Dart</span>
-                                <span class="bg-gray-700 text-gray-300 text-sm font-semibold px-3 py-1 rounded-full">AI API</span>
-                            </div>
-                            <a href="https://github.com/zaidkhan239/Wallpix" target="_blank" class="mt-auto inline-flex items-center justify-center w-full bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg hover:bg-gray-600 transition-colors border border-gray-600">
-                                <i class="fab fa-github mr-2"></i> Source Code
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Project Card 2: ZapCart -->
-                    <div class="bg-gray-800 rounded-lg shadow-xl border border-gray-700 hover:border-blue-500 transition-all flex flex-col">
-                        <div class="aspect-video bg-white rounded-t-lg overflow-hidden flex items-center justify-center p-4">
-                            <img src="https://i.postimg.cc/2SKXsVsj/ic-stat-notification.png" alt="ZapCart Project Showcase" class="h-full w-auto object-contain">
-                        </div>
-                        <div class="p-6 flex-grow flex flex-col">
-                            <h3 class="text-2xl font-bold text-white mb-4">ZapCart</h3>
-                            <p class="text-gray-400 leading-relaxed mb-6 flex-grow">
-                                A mobile dashboard for WooCommerce site owners to manage orders, view analytics, and update products on the go.
-                            </p>
-                            <div class="flex flex-wrap gap-3 mb-6">
-                                <span class="bg-gray-700 text-gray-300 text-sm font-semibold px-3 py-1 rounded-full">Flutter</span>
-                                <span class="bg-gray-700 text-gray-300 text-sm font-semibold px-3 py-1 rounded-full">WordPress REST API</span>
-                            </div>
-                            <a href="https://github.com/zaidkhan239/ZapCart" target="_blank" class="mt-auto inline-flex items-center justify-center w-full bg-gray-700 text-white font-semibold py-3 px-6 rounded-lg hover:bg-gray-600 transition-colors border border-gray-600">
-                                <i class="fab fa-github mr-2"></i> Source Code
-                            </a>
-                        </div>
-                    </div>
-                </div>
+        <a href="https://gtcare.in/" target="_blank" class="site-card">
+            <div class="site-logo-wrap">
+                <img src="https://gtcare.in/wp-content/uploads/2024/01/logo.png"
+                     alt="GT Care"
+                     onerror="this.parentElement.innerHTML='<span style=\'font-family:Space Grotesk;font-size:1.5rem;font-weight:700;color:#16a34a\'>GC</span>'">
             </div>
-        </section>
+            <div class="site-name">GT Care</div>
+            <div class="site-desc">Healthcare services website.</div>
+            <div class="site-url"><i class="fas fa-external-link-alt" style="font-size:0.6rem"></i> gtcare.in</div>
+        </a>
 
-        <!-- Live Websites Section -->
-        <section id="live-sites" class="py-24 section-bg">
-            <div class="container mx-auto px-6">
-                <div class="text-center mb-12">
-                    <h2 class="text-2xl font-bold text-gradient mb-2">LIVE WEBSITES</h2>
-                    <h3 class="text-3xl font-bold text-white">A selection of my WordPress work 🚀</h3>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Website Card 1 -->
-                    <a href="http://smithsandcobblers.com" target="_blank" class="block bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-700 hover:border-blue-500">
-                        <div class="h-40 mb-4 flex items-center justify-center bg-white rounded-md p-2">
-                             <img src="https://i.postimg.cc/262Hxy7f/SMITHS-COBBLERS-final.png" alt="Smiths and Cobblers" class="max-h-full max-w-full object-contain">
-                        </div>
-                        <h4 class="text-xl font-bold text-white mb-2 text-center">Smiths and Cobblers</h4>
-                        <p class="text-gray-400 text-center">E-commerce for bespoke leather goods and footwear.</p>
-                    </a>
-                    <!-- Website Card 5 -->
-                    <a href="http://crepculture.com" target="_blank" class="block bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-700 hover:border-blue-500">
-                        <div class="h-40 mb-4 flex items-center justify-center bg-white rounded-md p-2">
-                            <img src="https://i.postimg.cc/FzkjJHPp/ggg.webp" alt="Crep Culture" class="max-h-full max-w-full object-contain">
-                        </div>
-                        <h4 class="text-xl font-bold text-white mb-2 text-center">Crep Culture</h4>
-                        <p class="text-gray-400 text-center">An e-commerce platform for luxury and stylish watches.</p>
-                    </a>
-                    <!-- Website Card 2 -->
-                    <a href="http://aryanopticals.in" target="_blank" class="block bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-700 hover:border-blue-500">
-                        <div class="h-40 mb-4 flex items-center justify-center bg-white rounded-md p-2">
-                            <img src="https://i.postimg.cc/rFj8rXbX/ARYAN-2.png" alt="Aryan Opticals" class="max-h-full max-w-full object-contain">
-                        </div>
-                        <h4 class="text-xl font-bold text-white mb-2 text-center">Aryan Opticals</h4>
-                        <p class="text-gray-400 text-center">Professional site for an optical store's eyewear collections.</p>
-                    </a>
-                    <!-- Website Card 3 -->
-                    <a href="http://yashpal.in" target="_blank" class="block bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-700 hover:border-blue-500">
-                        <div class="h-40 mb-4 flex items-center justify-center bg-white rounded-md p-2">
-                            <img src="https://i.postimg.cc/1XVzKn1g/funky-23.png" alt="Yash Pal" class="max-h-full max-w-full object-contain">
-                        </div>
-                        <h4 class="text-xl font-bold text-white mb-2 text-center">Yash Pal</h4>
-                        <p class="text-gray-400 text-center">A corporate site for a business specializing in device displays.</p>
-                    </a>
-                    <!-- Website Card 4 -->
-                    <a href="http://funkyshades.in" target="_blank" class="block bg-gray-800 p-6 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border-2 border-gray-700 hover:border-blue-500">
-                        <div class="h-40 mb-4 flex items-center justify-center bg-white rounded-md p-2">
-                            <img src="https://i.postimg.cc/tgRvnFFz/funkyshades.png" alt="Funky Shades" class="max-h-full max-w-full object-contain">
-                        </div>
-                        <h4 class="text-xl font-bold text-white mb-2 text-center">Funky Shades</h4>
-                        <p class="text-gray-400 text-center">Online store specializing in fashionable sunglasses.</p>
-                    </a>
-                </div>
+        <a href="http://smithsandcobblers.com" target="_blank" class="site-card">
+            <div class="site-logo-wrap">
+                <img src="https://i.postimg.cc/262Hxy7f/SMITHS-COBBLERS-final.png" alt="Smiths and Cobblers">
             </div>
-        </section>
+            <div class="site-name">Smiths & Cobblers</div>
+            <div class="site-desc">E-commerce for bespoke leather goods.</div>
+            <div class="site-url"><i class="fas fa-external-link-alt" style="font-size:0.6rem"></i> smithsandcobblers.com</div>
+        </a>
 
-        <!-- Contact Section -->
-        <section id="contact" class="py-24 bg-gray-900">
-            <div class="container mx-auto px-6 text-center">
-                <div class="max-w-2xl mx-auto">
-                    <h2 class="text-2xl font-bold text-gradient mb-2">CONTACT</h2>
-                    <h3 class="text-3xl font-bold text-white mb-6">Don't be shy! Hit me up! 👇</h3>
-                    <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-12">
-                        <div class="flex items-center space-x-4">
-                            <i class="fas fa-map-marker-alt text-3xl text-blue-400"></i>
-                            <div>
-                                <h4 class="text-xl font-bold text-white">Location</h4>
-                                <p class="text-gray-400">Surat, Gujarat</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center space-x-4">
-                            <i class="fas fa-envelope text-3xl text-blue-400"></i>
-                            <div>
-                                <h4 class="text-xl font-bold text-white">Mail</h4>
-                                <a href="mailto:zaidkhan4030@gmail.com" class="text-gray-400 hover:text-blue-400">zaidkhan4030@gmail.com</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+        <a href="http://crepculture.com" target="_blank" class="site-card">
+            <div class="site-logo-wrap">
+                <img src="https://i.postimg.cc/FzkjJHPp/ggg.webp" alt="Crep Culture">
             </div>
-        </section>
-    </main>
+            <div class="site-name">Crep Culture</div>
+            <div class="site-desc">Luxury watches e-commerce platform.</div>
+            <div class="site-url"><i class="fas fa-external-link-alt" style="font-size:0.6rem"></i> crepculture.com</div>
+        </a>
 
-    <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-6 text-center">
-            <p class="text-lg font-bold mb-4">Copyright © 2025. All rights are reserved</p>
-            <div class="flex justify-center space-x-6">
-                 <a href="https://www.linkedin.com/in/khan-zaid-5b824b263/" target="_blank" class="text-2xl hover:text-blue-400 transition-colors">
-                     <i class="fab fa-linkedin"></i>
-                 </a>
-                 <a href="https://github.com/zaidkhan239" target="_blank" class="text-2xl hover:text-blue-400 transition-colors">
-                     <i class="fab fa-github"></i>
-                 </a>
+        <a href="http://aryanopticals.in" target="_blank" class="site-card">
+            <div class="site-logo-wrap">
+                <img src="https://i.postimg.cc/rFj8rXbX/ARYAN-2.png" alt="Aryan Opticals">
             </div>
-        </div>
-    </footer>
+            <div class="site-name">Aryan Opticals</div>
+            <div class="site-desc">Optical store eyewear collections.</div>
+            <div class="site-url"><i class="fas fa-external-link-alt" style="font-size:0.6rem"></i> aryanopticals.in</div>
+        </a>
 
-    <script>
-        // --- Mobile Menu Toggle ---
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu'); 
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        const mobileMenuLinks = mobileMenu.getElementsByTagName('a');
-        for (let link of mobileMenuLinks) {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-            });
-        }
+        <a href="http://funkyshades.in" target="_blank" class="site-card">
+            <div class="site-logo-wrap">
+                <img src="https://i.postimg.cc/tgRvnFFz/funkyshades.png" alt="Funky Shades">
+            </div>
+            <div class="site-name">Funky Shades</div>
+            <div class="site-desc">Online store for fashionable sunglasses.</div>
+            <div class="site-url"><i class="fas fa-external-link-alt" style="font-size:0.6rem"></i> funkyshades.in</div>
+        </a>
 
-        // --- Header Shadow on Scroll ---
-        const header = document.getElementById('header');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                header.classList.add('shadow-lg', 'shadow-gray-700/50');
-            } else {
-                header.classList.remove('shadow-lg', 'shadow-gray-700/50');
-            }
-        });
-    </script>
+    </div>
+</div>
 
 </body>
 </html>
